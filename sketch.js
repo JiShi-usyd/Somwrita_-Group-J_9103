@@ -98,13 +98,6 @@ function draw() {
   drawPixelGhost(95, 405, color(90, 90, 255)); //purple
 
   pop();
-
-  fill(255, 255, 255, 150);
-  rect(width / 2 - 310, height - 70, 620, 50, 10)
-
-  fill(0);
-  textSize(32);
-  text("Click the screen to start the music", width / 2, height - 30);
 }
 
 function drawBackground() {
@@ -146,7 +139,8 @@ function setPaths(){
     [375, 275, 375, 375]
   ];
 
-  // Convert each group of coordinates into an object {x1, y1, x2, y2} and store it in paths. 
+  // Convert each group of coordinates into 
+  // an object {x1, y1, x2, y2} and store it in paths. 
   for (let p of originalPaths){
     paths.push({ x1: p[0], y1: p[1], x2: p[2], y2: p[3] });
   }
