@@ -181,63 +181,7 @@ function drawDots(){
   }
 }
 
-function drawPixelGhost(x, y, bodyColor) {
-  const s = 2; // Pixel block size
-  
-  // 0=transparent，1=body，2=eye-white，3=eye
-  let pixels = [
-    [0,0,1,1,1,1,0,0],
-    [0,1,1,1,1,1,1,0],
-    [1,1,1,1,1,1,1,1],
-    [1,2,2,1,1,2,2,1],
-    [1,3,2,1,1,3,2,1],
-    [1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1],
-    [1,0,1,0,1,0,1,1],
-    
-  ];
-  
-  for (let row = 0; row < pixels.length; row++) {
-    for (let col = 0; col < pixels[row].length; col++) {
-      let val = pixels[row][col];
-      if (val === 1) fill(bodyColor); 
-      else if (val === 2) fill(255); 
-      else if (val === 3) fill(0); 
-      else continue; 
-      rect(x + col * s, y + row * s, s, s);
-    }
-  }
-}
 
-function drawPixelPacman(x, y, bodyColor) {
-  const s = 2;
-
-  // 0=transparent，1=body，2=mouth（transparent）
-  let pixels = [
-    [0,0,0,1,1,1,1,1,1,0,0,0],
-    [0,0,1,1,1,1,1,1,1,1,0,0],
-    [0,1,1,1,1,1,1,1,1,1,1,0],
-    [0,1,1,1,1,1,1,1,1,1,2,0],
-    [1,1,1,1,1,1,1,1,2,2,2,2],
-    [1,1,1,1,1,1,2,2,2,2,2,2],
-    [1,1,1,1,1,1,1,1,2,2,2,2],
-    [0,1,1,1,1,1,1,1,1,1,2,2],
-    [0,1,1,1,1,1,1,1,1,1,1,0],
-    [0,0,1,1,1,1,1,1,1,1,0,0],
-    [0,0,0,1,1,1,1,1,1,0,0,0]
-  ];
-
-  for (let row = 0; row < pixels.length; row++) {
-    for (let col = 0; col < pixels[row].length; col++) {
-      let val = pixels[row][col];
-      if (val === 1) fill(bodyColor); 
-      else if (val === 2) fill(0);
-      else continue;  
-      rect(x + col * s, y + row * s, s, s);
-    }
-  }
-}
 
 
 function drawBody(){
@@ -446,5 +390,64 @@ function drawNeonText(points, brightness, offsetX = 0, offsetY = 0) {
     drawingContext.shadowBlur = 0;
     drawingContext.shadowColor = color(0, 0, 0, 0);
     noFill();
+  }
+}
+
+
+function drawPixelGhost(x, y, bodyColor) {
+  const s = 2; // Pixel block size
+  
+  // 0=transparent，1=body，2=eye-white，3=eye
+  let pixels = [
+    [0,0,1,1,1,1,0,0],
+    [0,1,1,1,1,1,1,0],
+    [1,1,1,1,1,1,1,1],
+    [1,2,2,1,1,2,2,1],
+    [1,3,2,1,1,3,2,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,0,1,0,1,0,1,1],
+    
+  ];
+  
+  for (let row = 0; row < pixels.length; row++) {
+    for (let col = 0; col < pixels[row].length; col++) {
+      let val = pixels[row][col];
+      if (val === 1) fill(bodyColor); 
+      else if (val === 2) fill(255); 
+      else if (val === 3) fill(0); 
+      else continue; 
+      rect(x + col * s, y + row * s, s, s);
+    }
+  }
+}
+
+function drawPixelPacman(x, y, bodyColor) {
+  const s = 2;
+
+  // 0=transparent，1=body，2=mouth（transparent）
+  let pixels = [
+    [0,0,0,1,1,1,1,1,1,0,0,0],
+    [0,0,1,1,1,1,1,1,1,1,0,0],
+    [0,1,1,1,1,1,1,1,1,1,1,0],
+    [0,1,1,1,1,1,1,1,1,1,2,0],
+    [1,1,1,1,1,1,1,1,2,2,2,2],
+    [1,1,1,1,1,1,2,2,2,2,2,2],
+    [1,1,1,1,1,1,1,1,2,2,2,2],
+    [0,1,1,1,1,1,1,1,1,1,2,2],
+    [0,1,1,1,1,1,1,1,1,1,1,0],
+    [0,0,1,1,1,1,1,1,1,1,0,0],
+    [0,0,0,1,1,1,1,1,1,0,0,0]
+  ];
+
+  for (let row = 0; row < pixels.length; row++) {
+    for (let col = 0; col < pixels[row].length; col++) {
+      let val = pixels[row][col];
+      if (val === 1) fill(bodyColor); 
+      else if (val === 2) fill(0);
+      else continue;  
+      rect(x + col * s, y + row * s, s, s);
+    }
   }
 }
